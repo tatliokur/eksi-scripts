@@ -42,6 +42,8 @@ silme_modunu_ac = function(){
 
 silme_modunu_kapat = function(){
 	$('a.entry-date').unbind('click');
+	$('a.entry-date').parent().find("span").remove();
+	silinecekler = [];
 }
 
 secilen_entryleri_sil = async function() {
