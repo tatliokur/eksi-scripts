@@ -1,5 +1,3 @@
-jQuery(function($) {
-
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -65,4 +63,3 @@ async function secilen_entryleri_sil() {
   alert("SEÇİLEN ENTRYLERİN SİLİNME İŞLEMİ TAMAMLANDI!");
 }
 	
-});
