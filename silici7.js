@@ -1,10 +1,10 @@
 (function($) {
 
-function sleep(ms) {
+export function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function tum_entryleri_yukle() {
+export async function tum_entryleri_yukle() {
   while(true){
     if ($('a.load-more-entries.hidden').length == 1) break;
     $('a.load-more-entries').click()
@@ -13,7 +13,7 @@ async function tum_entryleri_yukle() {
 }
 
 silinecekler = [];
-function silme_modunu_ac(){
+export function silme_modunu_ac(){
 	$('a.entry-date').click(function(){
 		entrynum=$(this).attr("href").split("/")[2];
 		const index = silinecekler.indexOf(entrynum);
@@ -34,11 +34,11 @@ function silme_modunu_ac(){
 	});
 }
 
-function silme_modunu_kapat(){
+export function silme_modunu_kapat(){
 	$('a.entry-date').unbind('click');
 }
 
-async function secilen_entryleri_sil() {
+export async function secilen_entryleri_sil() {
   while(true){
     if (silinecekler.length == 0) break;
     $.ajax("https://eksisozluk.com/entry/sil", {
