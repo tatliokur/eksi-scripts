@@ -1,3 +1,4 @@
+var silinecekler = [];
 var sleep;
 var tum_entryleri_yukle;
 var silme_modunu_ac;
@@ -18,7 +19,7 @@ tum_entryleri_yukle = async function() {
   }
 }
 
-var silinecekler = [];
+
 silme_modunu_ac = function(){
 	$('a.entry-date').click(function(){
 		entrynum=$(this).attr("href").split("/")[2];
