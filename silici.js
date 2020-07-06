@@ -1,6 +1,8 @@
 var sleep;
 var tum_entryleri_yukle;
-
+var silme_modunu_ac;
+var silme_modunu_kapat;
+var secilen_entryleri_sil;
 
 (function($) {
 
@@ -17,7 +19,7 @@ tum_entryleri_yukle = async function() {
 }
 
 var silinecekler = [];
-function silme_modunu_ac(){
+silme_modunu_ac = function(){
 	$('a.entry-date').click(function(){
 		entrynum=$(this).attr("href").split("/")[2];
 		const index = silinecekler.indexOf(entrynum);
@@ -38,11 +40,11 @@ function silme_modunu_ac(){
 	});
 }
 
-function silme_modunu_kapat(){
+silme_modunu_kapat = function(){
 	$('a.entry-date').unbind('click');
 }
 
-async function secilen_entryleri_sil() {
+secilen_entryleri_sil = async function() {
   while(true){
     if (silinecekler.length == 0) break;
     $.ajax("https://eksisozluk.com/entry/sil", {
