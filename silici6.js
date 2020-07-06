@@ -64,5 +64,10 @@ async function secilen_entryleri_sil() {
   }
   alert("SEÇİLEN ENTRYLERİN SİLİNME İŞLEMİ TAMAMLANDI!");
 }
+
+$("div.sub-title-menu.profile-buttons").append('<button onclick="tum_entryleri_yukle()">Tüm entryleri yükle</button>');
+$("div.sub-title-menu.profile-buttons").append('<button onclick="silme_modunu_ac()">Silme Modunu Aç</button>');
+$("div.sub-title-menu.profile-buttons").append('<button onclick="silme_modunu_kapat()">Silme Modunu Kapat</button>');
+$("div.sub-title-menu.profile-buttons").append('<button onclick="secilen_entryleri_sil()">Seçilen Entryleri Sil</button>');
 	
 })(jQuery);
