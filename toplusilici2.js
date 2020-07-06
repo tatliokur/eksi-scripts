@@ -4,6 +4,8 @@ var tum_entryleri_yukle;
 var silme_modunu_ac;
 var silme_modunu_kapat;
 var secilen_entryleri_sil;
+var silinecekleri_yedekle;
+var silinecekleri_geri_yükle;
 
 (function($) {
 
@@ -74,9 +76,21 @@ secilen_entryleri_sil = async function() {
   alert("SEÇİLEN ENTRYLERİN SİLİNME İŞLEMİ TAMAMLANDI!");
 }
 
+silinecekleri_yedekle = function() {
+    localStorage.setItem('silinecekler', JSON.stringify(silinecekler));
+}
+
+silinecekleri_geri_yukle = function() {
+    var silineceklerLS = localStorage.getItem('silinecekler');
+    var silineceklerJSONP = JSON.parse(silineceklerLS);
+    if(Array.isArray(silineceklerJSONP)) silinecekler = silineceklerJSONP;
+}
+
 $("div.sub-title-menu.profile-buttons").append('<button onclick="tum_entryleri_yukle()">Tüm entryleri yükle</button>');
-$("div.sub-title-menu.profile-buttons").append('<button onclick="silme_modunu_ac()">Silme Modunu Aç</button>');
-$("div.sub-title-menu.profile-buttons").append('<button onclick="silme_modunu_kapat()">Silme Modunu Kapat</button>');
-$("div.sub-title-menu.profile-buttons").append('<button onclick="secilen_entryleri_sil()">Seçilen Entryleri Sil</button>');
+$("div.sub-title-menu.profile-buttons").append('<button onclick="silme_modunu_ac()">Silme modunu aç</button>');
+$("div.sub-title-menu.profile-buttons").append('<button onclick="silme_modunu_kapat()">Silme modunu kapat</button>');
+$("div.sub-title-menu.profile-buttons").append('<button onclick="secilen_entryleri_sil()">Seçilen entryleri sil</button>');
+$("div.sub-title-menu.profile-buttons").append('<button onclick="secilen_entryleri_sil()">Silinecek listesini yedekle</button>');
+$("div.sub-title-menu.profile-buttons").append('<button onclick="secilen_entryleri_sil()">Silinecek listesini geri yükle</button>');
 	
 })(jQuery);
