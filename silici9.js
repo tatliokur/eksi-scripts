@@ -4,7 +4,7 @@ var sleep = function(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export async function tum_entryleri_yukle() {
+async function tum_entryleri_yukle() {
   while(true){
     if ($('a.load-more-entries.hidden').length == 1) break;
     $('a.load-more-entries').click()
