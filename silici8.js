@@ -1,6 +1,6 @@
 (function($) {
 
-export function sleep(ms) {
+var sleep = function(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
@@ -12,8 +12,8 @@ export async function tum_entryleri_yukle() {
   }
 }
 
-silinecekler = [];
-export function silme_modunu_ac(){
+var silinecekler = [];
+function silme_modunu_ac(){
 	$('a.entry-date').click(function(){
 		entrynum=$(this).attr("href").split("/")[2];
 		const index = silinecekler.indexOf(entrynum);
@@ -34,11 +34,11 @@ export function silme_modunu_ac(){
 	});
 }
 
-export function silme_modunu_kapat(){
+function silme_modunu_kapat(){
 	$('a.entry-date').unbind('click');
 }
 
-export async function secilen_entryleri_sil() {
+async function secilen_entryleri_sil() {
   while(true){
     if (silinecekler.length == 0) break;
     $.ajax("https://eksisozluk.com/entry/sil", {
