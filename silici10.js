@@ -1,10 +1,14 @@
+var sleep;
+var tum_entryleri_yukle;
+
+
 (function($) {
 
-var sleep = function(ms) {
+sleep = function(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function tum_entryleri_yukle() {
+tum_entryleri_yukle = async function() {
   while(true){
     if ($('a.load-more-entries.hidden').length == 1) break;
     $('a.load-more-entries').click()
