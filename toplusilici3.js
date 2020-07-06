@@ -78,19 +78,23 @@ secilen_entryleri_sil = async function() {
 
 silinecekleri_yedekle = function() {
     localStorage.setItem('silinecekler', JSON.stringify(silinecekler));
+    console.log("Silinecekler listesi yedeklendi.");
 }
 
 silinecekleri_geri_yukle = function() {
     var silineceklerLS = localStorage.getItem('silinecekler');
     var silineceklerJSONP = JSON.parse(silineceklerLS);
-    if(Array.isArray(silineceklerJSONP)) silinecekler = silineceklerJSONP;
+    if(Array.isArray(silineceklerJSONP)){ 
+         silinecekler = silineceklerJSONP;
+         console.log("Silinecekler listesi geri yüklendi.");
+    }
 }
 
 $("div.sub-title-menu.profile-buttons").append('<button onclick="tum_entryleri_yukle()">Tüm entryleri yükle</button>');
 $("div.sub-title-menu.profile-buttons").append('<button onclick="silme_modunu_ac()">Silme modunu aç</button>');
 $("div.sub-title-menu.profile-buttons").append('<button onclick="silme_modunu_kapat()">Silme modunu kapat</button>');
 $("div.sub-title-menu.profile-buttons").append('<button onclick="secilen_entryleri_sil()">Seçilen entryleri sil</button>');
-$("div.sub-title-menu.profile-buttons").append('<button onclick="secilen_entryleri_sil()">Silinecek listesini yedekle</button>');
-$("div.sub-title-menu.profile-buttons").append('<button onclick="secilen_entryleri_sil()">Silinecek listesini geri yükle</button>');
+$("div.sub-title-menu.profile-buttons").append('<button onclick="silinecekleri_yedekle()">Silinecek listesini yedekle</button>');
+$("div.sub-title-menu.profile-buttons").append('<button onclick="silinecekleri_geri_yukle()">Silinecek listesini geri yükle</button>');
 	
 })(jQuery);
