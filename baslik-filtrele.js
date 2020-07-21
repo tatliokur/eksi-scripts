@@ -11,6 +11,7 @@ var yeni_sureli_kural_ekle;
 var sureli_kurallari_temizle;
 var kurallari_esitle;
 var init_events;
+var filtrelemeyi_baslat;
 
 
 (function($) {
@@ -130,11 +131,14 @@ var init_events;
 		});
 		
 	}
-
-
-	await init_events();
-	await kurallari_yukle();
-	await yasaklilari_gizle();
-	await sureli_kurallari_temizle();
+        
+	filtrelemeyi_baslat = async function(){
+		await init_events();
+		await kurallari_yukle();
+		await yasaklilari_gizle();
+		await sureli_kurallari_temizle();
+	}
+	
+	filtrelemeyi_baslat();
 
 })(jQuery);
